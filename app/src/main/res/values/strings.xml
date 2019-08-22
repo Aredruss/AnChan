@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Boarder</string>
+    <string name="thread_op">OP</string>
+    <string name="post_number">POST NUMBER</string>
+    <string name="thread_title">TITLE</string>
+    <string name="thread_reply">REPLY</string>
+    <string name="co_board">/co/</string>
+    <string name="tv_board">/tv/</string>
+    <string name="v_board">/v/</string>
+    <string name="an_board">/an/</string>
+</resources>

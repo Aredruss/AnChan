@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:text="@string/post_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/post_num_tv"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp"
+                    android:gravity="end"
+                    android:background="@android:color/background_dark"
+                    android:textColor="@android:color/background_light"
+                    android:textStyle="bold"
+                    android:typeface="normal"/>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:layout_width="@dimen/post_thumbnail_dim"
+                        android:layout_height="@dimen/post_thumbnail_dim"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:id="@+id/post_image_iv"
+                        android:layout_margin="10dp"
+                        android:visibility="visible"
+                        android:scaleType="fitXY"/>
+
+                <TextView
+                        android:text="@string/thread_reply"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:id="@+id/post_text_tv"
+                        android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

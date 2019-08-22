@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="boards">
+        <item>@string/co_board</item>
+        <item>@string/an_board</item>
+        <item>@string/tv_board</item>
+        <item>@string/v_board</item>
+    </array>
+</resources>
