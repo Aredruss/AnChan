@@ -1,7 +1,8 @@
-package com.redbox.boarder
+package com.redbox.boarder.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.redbox.boarder.R
 
 class MainActivity : AppCompatActivity() {
 
