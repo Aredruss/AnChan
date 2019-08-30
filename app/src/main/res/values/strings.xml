@@ -8,4 +8,8 @@
     <string name="tv_board">/tv/</string>
     <string name="v_board">/v/</string>
     <string name="an_board">/an/</string>
+    <string name="boards_placeholder">Here will be the list of boards</string>
+    <string name="page_placeholder">This is a placeholder for a board page</string>
+    <string name="thread_placeholder">This is a placeholder for a tread page</string>
+    <string name="thread_filename">filename.jpg</string>
 </resources>

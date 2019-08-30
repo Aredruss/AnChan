@@ -1,4 +1,6 @@
 package com.redbox.boarder.ui
 
-class PageFragment {
+import androidx.fragment.app.Fragment
+
+class PageFragment : Fragment() {
 }

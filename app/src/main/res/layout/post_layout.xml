@@ -1,60 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/post_background_color"
+            app:cardElevation="4dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-                android:orientation="vertical"
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
 
             <TextView
-                    android:text="@string/post_number"
+                    android:id="@+id/post_num_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/post_num_tv"
-                    android:paddingEnd="10dp"
-                    android:paddingStart="0dp"
+                    android:background="@color/colorPrimary"
                     android:gravity="end"
-                    android:background="@android:color/background_dark"
-                    android:textColor="@android:color/background_light"
+                    android:padding="5dp"
+                    android:text="@string/post_number"
+                    android:textColor="#FFFFFFFF"
                     android:textStyle="bold"
-                    android:typeface="normal"/>
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <ImageView
+                    android:id="@+id/post_img_iv"
+                    android:layout_width="87dp"
+                    android:layout_height="89dp"
+                    android:layout_margin="5dp"
+                    android:maxWidth="80dp"
+                    android:maxHeight="100dp"
+                    android:scaleType="fitXY"
+                    android:visibility="visible"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/post_num_tv"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-                <ImageView
-                        android:layout_width="@dimen/post_thumbnail_dim"
-                        android:layout_height="@dimen/post_thumbnail_dim"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/post_image_iv"
-                        android:layout_margin="10dp"
-                        android:visibility="visible"
-                        android:scaleType="fitXY"/>
+            <TextView
+                    android:id="@+id/post_fn_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/thread_filename"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    app:layout_constraintLeft_toLeftOf="@id/post_img_iv"
+                    app:layout_constraintRight_toRightOf="@id/post_img_iv"
+                    app:layout_constraintTop_toBottomOf="@id/post_img_iv" />
 
-                <TextView
-                        android:text="@string/thread_reply"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:id="@+id/post_text_tv"
-                        android:textStyle="bold"/>
-            </LinearLayout>
+            <TextView
+                    android:id="@+id/post_reply_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/thread_reply"
+                    app:layout_constraintLeft_toRightOf="@id/post_img_iv"
+                    app:layout_constraintTop_toTopOf="@id/post_img_iv" />
 
-        </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

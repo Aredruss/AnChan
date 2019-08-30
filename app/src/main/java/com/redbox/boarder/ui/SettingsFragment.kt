@@ -1,4 +1,6 @@
 package com.redbox.boarder.ui
 
-class SettingsFragment {
+import androidx.fragment.app.Fragment
+
+class SettingsFragment : Fragment() {
 }
