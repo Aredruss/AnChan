@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.redbox.boarder.posts.PostViewModel" />
+    </data>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,18 +33,37 @@
                 android:paddingBottom="10dp">
 
 
-            <TextView
-                    android:id="@+id/post_num_tv"
+            <TableRow
+                    android:id="@+id/table"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
-                    android:gravity="end"
-                    android:padding="5dp"
-                    android:text="@string/post_number"
-                    android:textColor="#FFFFFFFF"
-                    android:textStyle="bold"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                <TextView
+                        android:id="@+id/post_num_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:padding="5dp"
+                        android:textColor="#FFFFFFFF"
+                        android:textStyle="bold"
+                        app:mutableText="@{viewModel.getNumber()}"/>
+
+                <TextView
+                        android:id="@+id/post_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:padding="5dp"
+                        app:mutableText="@{viewModel.getDate()}"
+                        android:textColor="#FFFFFFFF"
+                        android:textStyle="bold" />
+
+            </TableRow>
 
             <ImageView
                     android:id="@+id/post_img_iv"
@@ -45,7 +75,7 @@
                     android:scaleType="fitXY"
                     android:visibility="visible"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/post_num_tv"
+                    app:layout_constraintTop_toBottomOf="@id/table"
                     tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -54,7 +84,7 @@
                     android:layout_height="match_parent"
                     android:text="@string/thread_filename"
                     android:textAlignment="center"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:visibility="visible"
                     app:layout_constraintLeft_toLeftOf="@id/post_img_iv"
                     app:layout_constraintRight_toRightOf="@id/post_img_iv"
@@ -66,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:text="@string/thread_reply"
+                    app:mutableText="@{viewModel.getComment()}"
                     app:layout_constraintLeft_toRightOf="@id/post_img_iv"
                     app:layout_constraintTop_toTopOf="@id/post_img_iv" />
 
@@ -77,3 +107,5 @@
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

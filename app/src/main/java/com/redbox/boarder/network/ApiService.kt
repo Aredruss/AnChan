@@ -1,20 +1,22 @@
 package com.redbox.boarder.network
 
 import com.redbox.boarder.network.pojo.Page
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
+
     @GET("{board}/{page}.json")
     fun getPage(
         @Path("board") board: String,
         @Path("page") page: Int
-    ): Page
+    ): Single<Page>
 
     @GET("{board}/thread/{num}.json")
     fun getThread(
         @Path("board") board: String,
-        @Path("num") num : Int
-    ) : Thread
+        @Path("num") num: Int
+    ): Single<Thread>
 
 }

@@ -12,4 +12,5 @@
     <string name="page_placeholder">This is a placeholder for a board page</string>
     <string name="thread_placeholder">This is a placeholder for a tread page</string>
     <string name="thread_filename">filename.jpg</string>
+    <string name="post_timestamp">09/01/19 (Mon) 13:39:38</string>
 </resources>
