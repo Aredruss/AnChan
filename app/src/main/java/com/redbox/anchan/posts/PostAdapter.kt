@@ -34,11 +34,16 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = posts[position]
-        viewModel.bind(post)
+        holder.viewModel.bind(post)
 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val binding = DataBindingUtil.bind<ViewDataBinding>(itemView)
+        var binding = DataBindingUtil.bind<ViewDataBinding>(itemView)
+        val viewModel = PostViewModel()
+
+        init {
+            binding = DataBindingUtil.bind(itemView)
+        }
     }
 }
