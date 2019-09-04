@@ -6,17 +6,26 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.redbox.anchan.R
 import com.redbox.anchan.network.pojo.Post
 
 class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     lateinit var posts: List<Post>
-    lateinit var viewModel: PostViewModel
+    var viewModel: PostViewModel
+
+    init {
+        viewModel = PostViewModel()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(viewType, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.post_layout,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
