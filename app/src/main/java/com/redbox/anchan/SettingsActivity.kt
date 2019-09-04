@@ -1,7 +1,6 @@
-package com.redbox.boarder
+package com.redbox.anchan
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 
 class SettingsActivity : AppCompatActivity() {
 }

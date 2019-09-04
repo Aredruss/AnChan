@@ -4,15 +4,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
         <variable
                 name="viewModel"
-                type="com.redbox.boarder.posts.PostViewModel" />
+                type="com.redbox.anchan.posts.PostViewModel" />
     </data>
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/outer_cl"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/inner_cl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="10dp">
@@ -50,7 +51,7 @@
                         android:padding="5dp"
                         android:textColor="#FFFFFFFF"
                         android:textStyle="bold"
-                        app:mutableText="@{viewModel.getNumber()}"/>
+                        android:text="@{viewModel.getNumber()}"/>
 
                 <TextView
                         android:id="@+id/post_time_tv"
@@ -59,7 +60,7 @@
                         android:layout_weight="1"
                         android:gravity="end"
                         android:padding="5dp"
-                        app:mutableText="@{viewModel.getDate()}"
+                        android:text="@{viewModel.getDate()}"
                         android:textColor="#FFFFFFFF"
                         android:textStyle="bold" />
 
@@ -96,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    app:mutableText="@{viewModel.getComment()}"
+                    android:text="@{viewModel.getComment()}"
                     app:layout_constraintLeft_toRightOf="@id/post_img_iv"
                     app:layout_constraintTop_toTopOf="@id/post_img_iv" />
 

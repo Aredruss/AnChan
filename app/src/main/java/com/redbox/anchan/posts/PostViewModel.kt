@@ -1,7 +1,7 @@
-package com.redbox.boarder.posts
+package com.redbox.anchan.posts
 
 import androidx.lifecycle.MutableLiveData
-import com.redbox.boarder.network.pojo.Post
+import com.redbox.anchan.network.pojo.Post
 
 class PostViewModel {
 
@@ -15,8 +15,8 @@ class PostViewModel {
         date.value = post.now
     }
 
-    fun getNumber(): Int? {
-        return number.value
+    fun getNumber(): String? {
+        return number.value.toString()
     }
 
     fun getComment(): String? {
@@ -26,6 +26,5 @@ class PostViewModel {
     fun getDate(): String? {
         return date.value
     }
-
 
 }

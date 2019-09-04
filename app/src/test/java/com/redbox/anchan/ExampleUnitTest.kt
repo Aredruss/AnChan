@@ -1,4 +1,4 @@
-package com.redbox.boarder
+package com.redbox.anchan
 
 import org.junit.Test
 

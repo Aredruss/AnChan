@@ -1,12 +1,12 @@
-package com.redbox.boarder.catalog
+package com.redbox.anchan.catalog
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.redbox.boarder.R
-import com.redbox.boarder.catalog.page.PageFragment
+import com.redbox.anchan.R
+import com.redbox.anchan.page.PageFragment
 import kotlinx.android.synthetic.main.catalog_fragment_layout.*
 
 class CatalogFragment : Fragment() {

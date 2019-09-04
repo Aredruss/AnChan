@@ -1,4 +1,4 @@
-package com.redbox.boarder.network
+package com.redbox.anchan.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

@@ -1,8 +1,7 @@
-package com.redbox.boarder
+package com.redbox.anchan
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.redbox.boarder.catalog.CatalogFragment
 
 class MainActivity : AppCompatActivity() {
 

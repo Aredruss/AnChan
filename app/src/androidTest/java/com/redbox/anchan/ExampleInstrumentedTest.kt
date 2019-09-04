@@ -1,4 +1,4 @@
-package com.redbox.boarder
+package com.redbox.anchan
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
