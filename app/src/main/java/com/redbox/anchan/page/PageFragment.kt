@@ -28,7 +28,7 @@ class PageFragment : Fragment() {
         board = arguments!!.getString("board")
         return inflater.inflate(R.layout.page_fragment_layout, container, false)
     }
-
+    //Отрисовка Recycler не должна происходить при создании View, но понятного решения лучше я пока не нашел
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadPage(board)

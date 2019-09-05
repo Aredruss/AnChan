@@ -75,4 +75,7 @@ dependencies {
     // Material Design
     implementation "com.google.android.material:material:1.0.0"
 
+    // HTML parser
+    implementation 'org.jsoup:jsoup:1.9.2'
+
 }
