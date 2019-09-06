@@ -62,12 +62,10 @@
 
                 <ImageView
                         android:id="@+id/post_img_iv"
-                        android:layout_width="87dp"
-                        android:layout_height="89dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_margin="5dp"
-                        android:maxWidth="200dp"
-                        android:maxHeight="200dp"
-                        android:scaleType="fitXY"
+                        android:scaleType="fitCenter"
                         android:visibility="visible"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/table"

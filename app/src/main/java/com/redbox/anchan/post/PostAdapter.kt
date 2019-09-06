@@ -52,7 +52,6 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
             comTv.text = viewModel.getComment()
             Glide.with(itemView.context)
                 .load(viewModel.getPicturePath())
-                .centerCrop()
                 .into(postIv)
         }
     }
