@@ -18,6 +18,7 @@ class PageViewModel : ViewModel() {
     var fetchedPage = MutableLiveData<Page>()
     var posts = MutableLiveData<List<Post>>()
 
+    //Loading First Posts from the API
     fun loadPage(board: String, page: Int = 1) {
         NetworkModule.retrofit.create(ApiService::class.java)
             .getPage(board, page)
@@ -27,9 +28,9 @@ class PageViewModel : ViewModel() {
                 override fun onComplete() {
                     Log.d("Complete", "Fetched results successfully")
                     val threads = fetchedPage.value!!.threads
-                    var p = mutableListOf<Post>()
-                    for (i in 0 until threads!!.size) {
-                        p.add(threads[i].posts[0])
+                    var p : MutableList<Post> = mutableListOf()
+                    for (element in threads) {
+                        p.add(element.posts[0])
                     }
                     posts.value = p
                 }
@@ -49,11 +50,3 @@ class PageViewModel : ViewModel() {
         return posts
     }
 }
-
-//{ result ->
-//    fetchedPage.value = result
-//    Log.d("loading", fetchedPage.value.toString())
-//    parsePage()
-//}, { e ->
-//    print(e.stackTrace)
-//}

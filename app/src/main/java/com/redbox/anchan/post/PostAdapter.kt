@@ -1,4 +1,4 @@
-package com.redbox.anchan.posts
+package com.redbox.anchan.post
 
 import android.view.LayoutInflater
 import android.view.View

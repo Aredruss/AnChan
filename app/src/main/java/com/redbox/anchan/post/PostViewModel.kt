@@ -1,6 +1,5 @@
-package com.redbox.anchan.posts
+package com.redbox.anchan.post
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.redbox.anchan.network.pojo.Post
 import com.redbox.anchan.util.cleanHtml
@@ -22,9 +21,6 @@ class PostViewModel {
         picPath.value = post.filename
         tim.value = post.tim
         ext.value = post.ext
-
-        Log.d("Tim", tim.value.toString())
-
         path.value = tim.value.toString() + ext.value
     }
 
@@ -38,10 +34,6 @@ class PostViewModel {
 
     fun getDate(): String? {
         return date.value
-    }
-
-    fun getPictureName(): String? {
-        return picPath.value
     }
 
     fun getPicturePath(): String?

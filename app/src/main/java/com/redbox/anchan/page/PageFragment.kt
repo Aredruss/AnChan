@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.redbox.anchan.R
 import com.redbox.anchan.network.pojo.Post
-import com.redbox.anchan.posts.PostAdapter
+import com.redbox.anchan.post.PostAdapter
 import kotlinx.android.synthetic.main.page_fragment_layout.*
 
 class PageFragment : Fragment() {
@@ -32,6 +32,8 @@ class PageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadPage(board)
+
+        //Observing Posts From the ViewModel
         viewModel.getPosts().observe(this, Observer<List<Post>> {
             postAdapter = PostAdapter()
             postAdapter.posts = it
