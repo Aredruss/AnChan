@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.redbox.anchan.R
@@ -17,31 +18,37 @@ import kotlinx.android.synthetic.main.page_fragment_layout.*
 class PageFragment : Fragment() {
 
     lateinit var board: String
-    var viewModel = PageViewModel()
     lateinit var postAdapter : PostAdapter
+    lateinit var viewModel : PageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        board = arguments!!.getString("board")
+        viewModel = ViewModelProviders.of(this).get(PageViewModel::class.java)
+        board = arguments!!.getString("board")!!
+        //Log.d("D", viewModel.getPosts().value.isNullOrEmpty().toString())
         return inflater.inflate(R.layout.page_fragment_layout, container, false)
     }
+
     //Отрисовка Recycler не должна происходить при создании View, но понятного решения лучше я пока не нашел
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loadPage(board)
+
+        if (viewModel.getPosts().value.isNullOrEmpty()){
+            viewModel.loadPage(board)
+        }
 
         //Observing Posts From the ViewModel
         viewModel.getPosts().observe(this, Observer<List<Post>> {
             postAdapter = PostAdapter()
             postAdapter.posts = it
-            Log.d("On View Created", postAdapter.posts.toString())
             board_page_rv.adapter = postAdapter
-            board_page_rv.layoutManager = LinearLayoutManager(this.context)
-            postAdapter.notifyDataSetChanged()
         })
+
+        board_page_rv.layoutManager = LinearLayoutManager(this.context)
 
     }
 

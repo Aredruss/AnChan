@@ -12,7 +12,7 @@ interface ApiService {
     fun getPage(
         @Path("board") board: String,
         @Path("page") page: Int
-    ): Observable<Page>
+    ): Single<Page>
 
     @GET("{board}/thread/{num}.json")
     fun getThread(
