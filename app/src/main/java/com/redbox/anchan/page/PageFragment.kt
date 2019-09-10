@@ -1,23 +1,24 @@
 package com.redbox.anchan.page
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.redbox.anchan.R
 import com.redbox.anchan.post.PostAdapter
+import com.redbox.anchan.thread.ThreadFragment
 import kotlinx.android.synthetic.main.page_fragment_layout.*
 
 class PageFragment : Fragment() {
 
     lateinit var board: String
-    lateinit var postAdapter : PostAdapter
-    lateinit var viewModel : PageViewModel
+    lateinit var postAdapter: PostAdapter
+    lateinit var viewModel: PageViewModel
+
+    //TODO Change the layout and the current adapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +37,7 @@ class PageFragment : Fragment() {
         postAdapter = PostAdapter()
         postAdapter.hostFragment = this
 
-        if (viewModel.posts.value.isNullOrEmpty()){
+        if (viewModel.posts.value.isNullOrEmpty()) {
             viewModel.loadPage(board)
         }
 
@@ -52,4 +53,20 @@ class PageFragment : Fragment() {
 
     }
 
+    fun openThread(board: String, no: Int) {
+        val pageFragment = ThreadFragment()
+        val bundle = Bundle()
+
+        bundle.putString("board", board)
+        bundle.putInt("number", no)
+        pageFragment.arguments = bundle
+        val manager = activity?.supportFragmentManager
+        manager?.beginTransaction()?.replace(
+            R.id.main_activity_cl,
+            pageFragment
+        )
+            ?.addToBackStack(board + "_" + no)
+            ?.commit()
+    }
 }
+

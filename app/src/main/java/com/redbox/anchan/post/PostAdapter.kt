@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.redbox.anchan.R
 import com.redbox.anchan.network.pojo.Post
+import com.redbox.anchan.page.PageFragment
 import kotlinx.android.synthetic.main.post_layout.view.*
 
 class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     lateinit var posts: List<Post>
-    lateinit var hostFragment: Fragment
+    lateinit var hostFragment: PageFragment
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -37,7 +38,16 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        override fun onClick(v: View?) {
+            hostFragment.openThread(hostFragment.board, posts[0].no)
+        }
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
         val viewModel = ViewModelProviders.of(hostFragment).get(PostViewModel::class.java)
         private val numTv = itemView.post_num_tv
         private val comTv = itemView.post_reply_tv

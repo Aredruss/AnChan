@@ -24,12 +24,10 @@ class PageViewModel : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : DisposableSingleObserver<ThreadList>() {
                 override fun onSuccess(t: ThreadList) {
-
                     val p: MutableList<Post> = mutableListOf()
                     for (element in t.threads) {
                         p.add(element.posts[0])
                     }
-
                     posts.postValue(p)
                 }
 
