@@ -1,5 +1,5 @@
 package com.redbox.anchan.network.pojo
 
-data class Thread(
+data class PostList(
     val posts: List<Post>
 )

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/post_background_color"
+        android:elevation="@dimen/item_elevation"
+        android:padding="20dp">
+
+    <TextView
+            android:id="@+id/board_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/board_name"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/board_separotor_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/separator"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/board_name_tv"
+            app:layout_constraintTop_toTopOf="@id/board_name_tv" />
+
+    <TextView
+            android:id="@+id/board_code_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/board_code"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/board_separotor_tv"
+            app:layout_constraintTop_toTopOf="@id/board_name_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

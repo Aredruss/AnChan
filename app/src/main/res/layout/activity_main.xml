@@ -10,8 +10,8 @@
 
     <fragment
             android:id="@+id/fragment"
-            android:name="com.redbox.anchan.catalog.CatalogFragment"
-            android:layout_width="match_parent"
+            android:name="com.redbox.anchan.home.HomeFragment"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 </LinearLayout>

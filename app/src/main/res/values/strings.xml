@@ -13,4 +13,7 @@
     <string name="thread_placeholder">This is a placeholder for a tread page</string>
     <string name="thread_filename">filename.jpg</string>
     <string name="post_timestamp">09/01/19 (Mon) 13:39:38</string>
+    <string name="board_name"><![CDATA[Board & Name]]></string>
+    <string name="board_code">bc</string>
+    <string name="separator">-</string>
 </resources>

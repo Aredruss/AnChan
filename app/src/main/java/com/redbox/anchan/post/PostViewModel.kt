@@ -1,10 +1,11 @@
 package com.redbox.anchan.post
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.redbox.anchan.network.pojo.Post
 import com.redbox.anchan.util.cleanHtml
 
-class PostViewModel {
+class PostViewModel : ViewModel() {
 
     private val number = MutableLiveData<Int>()
     private val comment = MutableLiveData<String>()

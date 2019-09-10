@@ -34,6 +34,7 @@ class PageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         postAdapter = PostAdapter()
+        postAdapter.hostFragment = this
 
         if (viewModel.posts.value.isNullOrEmpty()){
             viewModel.loadPage(board)
