@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.anchan.R
 import com.redbox.anchan.post.PostAdapter
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.page_fragment_layout.*
 class PageFragment : Fragment() {
 
     lateinit var board: String
-    lateinit var postAdapter: PostAdapter
+    lateinit var pageItemAdapter: PageItemAdapter
     lateinit var viewModel: PageViewModel
 
     //TODO Change the layout and the current adapter
@@ -34,8 +35,8 @@ class PageFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-        postAdapter = PostAdapter()
-        postAdapter.hostFragment = this
+        pageItemAdapter = PageItemAdapter()
+        pageItemAdapter.hostFragment = this
 
         if (viewModel.posts.value.isNullOrEmpty()) {
             viewModel.loadPage(board)
@@ -43,13 +44,13 @@ class PageFragment : Fragment() {
 
         //Observing Posts From the ViewModel
         viewModel.getPosts(this) { posts ->
-            postAdapter.posts = posts
-            board_page_rv.adapter = postAdapter
-            postAdapter.notifyDataSetChanged()
+            pageItemAdapter.posts = posts
+            board_page_rv.adapter = pageItemAdapter
+            pageItemAdapter.notifyDataSetChanged()
 
         }
 
-        board_page_rv.layoutManager = LinearLayoutManager(this.context)
+        board_page_rv.layoutManager = GridLayoutManager((this.context), 2)
 
     }
 
