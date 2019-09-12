@@ -15,5 +15,5 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="@integer/dummy_value"
-            tools:listitem="@layout/post_layout" />
+            tools:listitem="@layout/thread_item_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

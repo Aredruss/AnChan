@@ -3,14 +3,13 @@ package com.redbox.anchan.post
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.redbox.anchan.R
 import com.redbox.anchan.network.pojo.Post
 import com.redbox.anchan.page.PageFragment
-import kotlinx.android.synthetic.main.post_layout.view.*
+import kotlinx.android.synthetic.main.thread_item_layout.view.*
 
 class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
@@ -20,7 +19,7 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.post_layout,
+                R.layout.thread_item_layout,
                 parent,
                 false
             )
