@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.anchan.R
-import com.redbox.anchan.post.PostAdapter
 import com.redbox.anchan.thread.ThreadFragment
 import kotlinx.android.synthetic.main.page_fragment_layout.*
 
@@ -19,7 +17,6 @@ class PageFragment : Fragment() {
     lateinit var pageItemAdapter: PageItemAdapter
     lateinit var viewModel: PageViewModel
 
-    //TODO Change the layout and the current adapter
 
     override fun onCreateView(
         inflater: LayoutInflater,

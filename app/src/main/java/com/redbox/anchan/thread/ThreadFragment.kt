@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.anchan.R
-import com.redbox.anchan.post.PostAdapter
+import kotlinx.android.synthetic.main.thread_fragment_layout.*
 
 class ThreadFragment : Fragment() {
 
     lateinit var threadViewModel: ThreadViewModel
+    var postAdapter = ThreadAdapter()
     lateinit var board: String
     var number: Int = 0
-
-    //TODO Imlplement another adapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,9 +36,13 @@ class ThreadFragment : Fragment() {
             threadViewModel.getThread(board, number)
         }
 
+        thread_posts_rv.layoutManager = LinearLayoutManager(this.context)
+        postAdapter.hostFragment = this
+
         threadViewModel.observeThread(this) { postList ->
-
-
+            postAdapter.posts = postList
+            thread_posts_rv.adapter = postAdapter
+            postAdapter.notifyDataSetChanged()
         }
 
     }

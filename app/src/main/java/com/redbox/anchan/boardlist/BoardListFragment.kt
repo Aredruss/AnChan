@@ -1,4 +1,4 @@
-package com.redbox.anchan.home
+package com.redbox.anchan.boardlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,28 +8,26 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.anchan.R
-import com.redbox.anchan.board.BoardAdapter
 import com.redbox.anchan.page.PageFragment
 import kotlinx.android.synthetic.main.home_fragment_layout.*
 
-class HomeFragment : Fragment() {
+class BoardListFragment : Fragment() {
 
-    lateinit var viewModel: HomeViewModel
-    lateinit var boardAdapter: BoardAdapter
+    lateinit var viewModel: BoardListViewModel
+    var boardAdapter = BoardListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(BoardListViewModel::class.java)
         return inflater.inflate(R.layout.home_fragment_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        boardAdapter = BoardAdapter()
         boardAdapter.hostFragment = this
         val boardRv = home_board_rv
 

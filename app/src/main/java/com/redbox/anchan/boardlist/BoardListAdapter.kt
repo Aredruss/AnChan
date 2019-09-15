@@ -1,20 +1,18 @@
-package com.redbox.anchan.board
+package com.redbox.anchan.boardlist
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.redbox.anchan.R
-import com.redbox.anchan.board.BoardAdapter.ViewHolder
-import com.redbox.anchan.home.HomeFragment
+import com.redbox.anchan.boardlist.BoardListAdapter.ViewHolder
 import com.redbox.anchan.network.pojo.Board
 import kotlinx.android.synthetic.main.board_item_layout.view.*
 
-class BoardAdapter : RecyclerView.Adapter<ViewHolder>() {
+class BoardListAdapter : RecyclerView.Adapter<ViewHolder>() {
     lateinit var boards: List<Board>
-    lateinit var hostFragment: HomeFragment
+    lateinit var hostFragment: BoardListFragment
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(

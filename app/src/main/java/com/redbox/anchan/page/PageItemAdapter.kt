@@ -37,7 +37,7 @@ class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>
         View.OnClickListener {
 
         override fun onClick(v: View?) {
-            hostFragment.openThread(hostFragment.board, posts[0].no)
+            hostFragment.openThread(hostFragment.board, posts[adapterPosition].no)
         }
 
         init {
