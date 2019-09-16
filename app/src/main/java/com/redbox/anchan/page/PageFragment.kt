@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.redbox.anchan.R
 import com.redbox.anchan.thread.ThreadFragment
 import kotlinx.android.synthetic.main.page_fragment_layout.*
@@ -17,6 +18,7 @@ class PageFragment : Fragment() {
     lateinit var pageItemAdapter: PageItemAdapter
     lateinit var viewModel: PageViewModel
 
+    //TODO Change the layout and the current adapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +39,7 @@ class PageFragment : Fragment() {
 
         if (viewModel.posts.value.isNullOrEmpty()) {
             viewModel.loadPage(board)
+
         }
 
         //Observing Posts From the ViewModel
@@ -49,6 +52,10 @@ class PageFragment : Fragment() {
 
         board_page_rv.layoutManager = GridLayoutManager((this.context), 2)
 
+        swipe_page_sl.setOnRefreshListener {
+            viewModel.loadPage(board)
+            swipe_page_sl.isRefreshing = false
+        }
     }
 
     fun openThread(board: String, no: Int) {

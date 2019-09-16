@@ -42,7 +42,7 @@ class ThreadFragment : Fragment() {
         threadViewModel.observeThread(this) { postList ->
             postAdapter.posts = postList
             thread_posts_rv.adapter = postAdapter
-            postAdapter.notifyDataSetChanged()
+            postAdapter.notifyItemInserted(postList.size+1)
         }
 
     }
