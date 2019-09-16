@@ -37,7 +37,7 @@ class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>
         View.OnClickListener {
 
         override fun onClick(v: View?) {
-            hostFragment.openThread(hostFragment.board, posts[adapterPosition].no)
+            hostFragment.openThread(hostFragment.board, posts[adapterPosition].number)
         }
 
         init {
@@ -47,13 +47,18 @@ class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>
         private val numTv = itemView.page_item_num_tv
         private val dateTv = itemView.page_item_date_tv
         private val postIv = itemView.page_item_iv
+        private val infoTv = itemView.page_iteminf_tv
+        private val subTv = itemView.page_item_sub_tv
 
         fun bind(post : Post) {
-            numTv.text = post.no.toString()
-            dateTv.text = post.now
+            numTv.text = post.number.toString()
+            dateTv.text = post.date
+            infoTv.text = post.replies.toString() + "/" + post.images
+            subTv.text = post.sub
             Glide.with(itemView.context)
                 .load("https://i.4cdn.org/${hostFragment.board}/${post.tim}${post.ext}")
                 .into(postIv)
+
         }
     }
 }

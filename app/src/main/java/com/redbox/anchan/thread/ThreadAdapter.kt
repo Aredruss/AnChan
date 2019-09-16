@@ -43,9 +43,9 @@ class ThreadAdapter : RecyclerView.Adapter<ThreadAdapter.ViewHolder>() {
         private val postIv = itemView.post_img_iv
 
         fun bind(post: Post) {
-            numTv.text = post.no.toString()
-            dateTv.text = post.now
-            comTv.text = cleanHtml(post.com)
+            numTv.text = post.number.toString()
+            dateTv.text = post.date
+            comTv.text = cleanHtml(post.comment)
 
             if (!post.ext.isNullOrBlank()) {
                 Glide.with(itemView.context)

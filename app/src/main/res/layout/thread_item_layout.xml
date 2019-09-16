@@ -73,6 +73,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
+                        android:maxWidth="210dp"
+                        android:isScrollContainer="true"
                         android:text="@string/thread_reply"
                         android:textAlignment="viewStart"
                         app:layout_constraintLeft_toRightOf="@id/post_img_iv"
