@@ -7,18 +7,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.redbox.anchan.R
 import com.redbox.anchan.thread.ThreadFragment
 import kotlinx.android.synthetic.main.page_fragment_layout.*
 
-class PageFragment : Fragment() {
+class PageTemplateFragment : Fragment() {
 
     lateinit var board: String
+    var page = 1
     lateinit var pageItemAdapter: PageItemAdapter
     lateinit var viewModel: PageViewModel
 
-    //TODO Change the layout and the current adapter
+    object Pager {
+        fun getNewInstance(currentBoard: String, nextPage: Int): PageTemplateFragment {
+            val pageFragment = PageTemplateFragment()
+            pageFragment.apply {
+                board = currentBoard
+                page = nextPage
+            }
+            return pageFragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +44,7 @@ class PageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         pageItemAdapter = PageItemAdapter()
-        pageItemAdapter.hostFragment = this
+        pageItemAdapter.hostTemplateFragment = this
 
         if (viewModel.posts.value.isNullOrEmpty()) {
             viewModel.loadPage(board)

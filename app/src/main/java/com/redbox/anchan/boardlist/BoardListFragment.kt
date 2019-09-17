@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.anchan.R
-import com.redbox.anchan.page.PageFragment
+import com.redbox.anchan.page.PageTemplateFragment
 import kotlinx.android.synthetic.main.home_fragment_layout.*
 
 class BoardListFragment : Fragment() {
@@ -44,7 +44,7 @@ class BoardListFragment : Fragment() {
     }
 
     fun openBoard(boardString: String) {
-        val pageFragment = PageFragment()
+        val pageFragment = PageTemplateFragment()
         val bundle = Bundle()
 
         bundle.putString("board", boardString)

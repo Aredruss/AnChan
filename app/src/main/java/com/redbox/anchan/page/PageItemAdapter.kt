@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.page_item_layout.view.*
 
 class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>() {
     lateinit var posts: List<Post>
-    lateinit var hostFragment: PageFragment
+    lateinit var hostTemplateFragment: PageTemplateFragment
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageItemViewHolder {
         return PageItemViewHolder(
@@ -37,7 +37,7 @@ class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>
         View.OnClickListener {
 
         override fun onClick(v: View?) {
-            hostFragment.openThread(hostFragment.board, posts[adapterPosition].number)
+            hostTemplateFragment.openThread(hostTemplateFragment.board, posts[adapterPosition].number)
         }
 
         init {
@@ -56,7 +56,7 @@ class PageItemAdapter : RecyclerView.Adapter<PageItemAdapter.PageItemViewHolder>
             infoTv.text = post.replies.toString() + "/" + post.images
             subTv.text = post.sub
             Glide.with(itemView.context)
-                .load("https://i.4cdn.org/${hostFragment.board}/${post.tim}${post.ext}")
+                .load("https://i.4cdn.org/${hostTemplateFragment.board}/${post.tim}${post.ext}")
                 .into(postIv)
 
         }
